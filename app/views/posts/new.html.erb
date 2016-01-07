@@ -1,0 +1,9 @@
+<div class="">
+<%= form_for @post do |f| %>
+  <%= f.label :image%>
+  <%= f.text_field :image %>
+  <%= f.label :caption %>
+  <%= f.text_area :caption %>
+  <%= button_to "Publish" %>
+<% end %>
+</div>
