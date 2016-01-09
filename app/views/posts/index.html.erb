@@ -4,5 +4,5 @@
 
 <% @posts.each do |post| %>
   <%= image_tag post.image, size: "150x100" %>
-  <p><%= post.caption %></p>
+  <p><%= link_to post.caption, post_path(post) %></p>
 <% end %>
