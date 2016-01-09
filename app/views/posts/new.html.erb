@@ -1,9 +1,11 @@
 <div class="">
-<%= form_for @post do |f| %>
-  <%= f.label :image%>
-  <%= f.text_field :image %>
+<%= flash[:alert] %>
+<%= form_for Post.new do |f| %>
+  <%= f.label :image %>
+  <%= f.file_field :image %>
   <%= f.label :caption %>
   <%= f.text_area :caption %>
-  <%= button_to "Publish" %>
+  <%= f.submit "Publish" %>
 <% end %>
 </div>
+

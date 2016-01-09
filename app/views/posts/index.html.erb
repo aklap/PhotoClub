@@ -1,3 +1,8 @@
 <h1>My Photos:</h1>
 
 <%= link_to "New Post", new_post_path %>
+
+<% @posts.each do |post| %>
+  <%= image_tag post.image, size: "150x100" %>
+  <p><%= post.caption %></p>
+<% end %>
