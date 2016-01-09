@@ -1,4 +1,5 @@
 <div class="">
+<%= flash[:alert] %>
 <%= form_for Post.new do |f| %>
   <%= f.label :image %>
   <%= f.file_field :image %>

@@ -12,6 +12,7 @@ class PostsController<ApplicationController
       flash[:notice] = "Upload succesful! Here's your upload:"
       redirect_to @post
     else
+      flash[:alert] = "Oops, I can't see anything. You need an image to post!"
       render :new
     end
   end
