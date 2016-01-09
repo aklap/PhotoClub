@@ -5,7 +5,7 @@ feature 'Creating posts' do
   scenario 'can create a post' do
     visit '/'
     click_link 'New Post'
-    attach_file('Image', "spec/files/images/espresso.jpg")
+    attach_file("post_image", "spec/files/images/espresso.jpg", visible: false)
     fill_in 'Caption', with: 'nom nom nom #coffeetime'
     click_button 'Publish'
     expect(page).to have_content('#coffeetime')
