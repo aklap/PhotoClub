@@ -1,17 +1,29 @@
-# create a job with factory_girl
-# visit the root route
-# click the image of the post we created with factory_girl
-# click the 'edit post' link
-# fill in 'Caption' with "Oh god, you weren’t meant to see this picture!"
-# click the ’Update Post’ button
-# expect the page to have content saying "Post updated hombre."
-# expect the page to have content saying “Oh god, you weren’t meant to see this picture!”
+require 'rails_helper.rb'
+require 'spec_helper.rb'
 
-feature '' do
-  scenario '' do
-    post = create(:post, caption: 'stuff here')
+feature 'individual posts can be edited' do
+  background do
+    post = create(:post)
 
     visit '/'
-    find('stuff here').click
+    click_link 'nofilter'
+  end
+
+  scenario 'user can edit post' do
+    click_on 'Edit Post'
+    fill_in 'Caption', with: 'Oops'
+    find_button('Publish').click
+
+    expect(page).to have_content('Update successful!')
+    expect(page).to have_content('Oops')
+  end
+
+  scenario 'user edits post with wrong or no file' do
+    click_on 'Edit Post'
+    fill_in 'Caption', with: 'Oops'
+    page.attach_file('post_image', 'spec/files/images/More_Coffee.zip', visible: false)
+    click_button 'Publish'
+
+    expect(page).to have_content("Something went wrong.")
   end
 end
