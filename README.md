@@ -1,6 +1,6 @@
 # PhotoClub
-A TDD Instagram clone
+[![Circle Ci](https://circleci.com/gh/aklap/PhotoClub.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/aklap/PhotoClub)
 
-https://circleci.com/gh/aklap/PhotoClub.svg?style=shield&circle-token=:circle-token
+A TDD Instagram clone
 
 
