@@ -1,0 +1,13 @@
+<h3>Edit my Post</h3>
+<div class="">
+  <%= flash[:alert] %>
+  <%= form_for @post do |f| %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.label :caption %>
+    <%= f.text_area :caption %>
+    <%= f.submit "Publish" %>
+  <% end %>
+</div>
+
+<%= button_to 'Delete', @post, method: :delete %>
