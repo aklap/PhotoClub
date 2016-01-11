@@ -1,6 +1,11 @@
 <h1>My Photos:</h1>
 <%= flash[:notice] %>
-<%= link_to "New Post", new_post_path %>
+
+<% if logged_in? %>
+  <%= link_to "New Post", new_post_path %>
+<% end %>
+
+<%= link_to "Log In", login_path %>
 <%= link_to "Register", new_user_path %>
 
 <% @posts.each do |post| %>
