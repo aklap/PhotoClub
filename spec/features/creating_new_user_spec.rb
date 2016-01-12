@@ -14,7 +14,7 @@ feature 'Creating a new user' do
     fill_in 'Password confirmation', with: 'supersecret', match: :prefer_exact
     click_on 'Sign Up'
 
-    expect(page.current_path).to eq '/posts'
+    expect(page.current_path).to eq '/'
     expect(page).to have_content 'Welcome! Registration successful.'
   end
 
