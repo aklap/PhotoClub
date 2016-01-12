@@ -2,9 +2,20 @@ require 'rails_helper.rb'
 require 'spec_helper.rb'
 
 feature 'Creating posts' do
+  background do
+    user = create :user
+    post_one = create(:post, caption: "It is better to be unhappy and know the worst, than to be happy in a fool's paradise.")
+    post_two = create(:post, caption: "I'm drunk but truthful.")
+    visit '/'
+    click_link 'Log In'
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: user.password
+    click_button 'Login'
+  end
+
   scenario 'can create a post' do
     visit '/'
-    click_link 'New Post'
+    click_on "New Post"
     attach_file("post_image", "spec/files/images/espresso.jpg", visible: false)
     fill_in 'Caption', with: 'nom nom nom #coffeetime'
     click_button 'Publish'
