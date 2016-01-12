@@ -16,10 +16,11 @@ Rails.application.routes.draw do
       resources :posts
 
       resources :users
-      get 'register' => 'users#new'
-      get 'login' => 'sessions#new'
+
+      get 'register' => 'users#new', as: :register
+      get 'login' => 'sessions#new', as: :login
       post 'login' => 'sessions#create'
-      get 'logout' => 'session#destroy'
+      get 'logout' => 'sessions#destroy', as: :logout
 
   # Example resource route with options:
   #   resources :products do
