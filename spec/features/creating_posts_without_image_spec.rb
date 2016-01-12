@@ -7,11 +7,8 @@ feature 'needs an image to create a post' do
     user = create :user
     post_one = create(:post, caption: "It is better to be unhappy and know the worst, than to be happy in a fool's paradise.")
     post_two = create(:post, caption: "I'm drunk but truthful.")
-    visit '/'
-    click_link 'Log In'
-    fill_in 'Username', with: user.username
-    fill_in 'Password', with: user.password
-    click_button 'Login'
+
+    sign_in_with user
   end
 
   scenario 'cannot create post without image file' do
