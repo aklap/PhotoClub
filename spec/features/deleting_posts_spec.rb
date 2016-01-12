@@ -3,9 +3,13 @@ require 'spec_helper'
 
 feature 'individual posts can be deleted' do
   background do
+    user = create :user
     post = create(:post)
-
     visit '/'
+    click_link 'Log In'
+    fill_in 'Username', with: user.username
+    fill_in 'Password', with: user.password
+    click_button 'Login'
     click_link 'nofilter'
   end
 

@@ -1,6 +1,9 @@
 class PostsController<ApplicationController
   def index
     @posts = Post.all
+    if current_user == nil
+      flash[:notice] = "You need to sign in or sign up before continuing."
+    end
   end
 
   def new
